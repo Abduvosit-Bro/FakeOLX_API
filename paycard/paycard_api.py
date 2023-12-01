@@ -5,7 +5,6 @@ from database.paycardservice import add_card_db, check_card_db, delete_card_db
 paycard_router = APIRouter(prefix='/card', tags=['Управление картами'])
 
 
-# Добавление новой карты
 @paycard_router.post('/add_new_card')
 async def add_new_card(card: CardInfoValidator):
     if check_card_db(card.card_number):
@@ -17,7 +16,6 @@ async def add_new_card(card: CardInfoValidator):
 
 
 
-# Удаление карты
 @paycard_router.delete('/delete_card/{card_id}')
 async def delete_card(card_id: int):
     result = delete_card_db(card_id)
