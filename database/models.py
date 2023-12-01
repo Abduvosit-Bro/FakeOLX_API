@@ -5,7 +5,7 @@ from sqlalchemy.orm import relationship
 from database import Base
 
 
-# Создаем таблицу пользователя
+
 class User(Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -19,7 +19,7 @@ class User(Base):
     reg_date = Column(DateTime)
 
 
-# Таблица публикаций
+
 class UserTrade(Base):
     __tablename__ = 'user_trades'
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -32,7 +32,7 @@ class UserTrade(Base):
 
     user_fk = relationship(User, lazy="subquery")
 
-# Таблица фотографий
+
 class TradePhoto(Base):
     __tablename__ = 'trade_photos'
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -41,7 +41,7 @@ class TradePhoto(Base):
 
     trade_fk = relationship(UserTrade, lazy='subquery')
 
-# Таблица для комментарий
+
 class Comment(Base):
     __tablename__ = 'trade_comments'
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -54,7 +54,7 @@ class Comment(Base):
 
 
 
-# Таблица карт пользователя
+
 class UserCard(Base):
     __tablename__ = 'cards'
     card_id = Column(Integer, primary_key=True, autoincrement=True)
@@ -69,7 +69,6 @@ class UserCard(Base):
 
 
 
-# Таблица перевода - Transfers
 class Transfer(Base):
     __tablename__ = 'transfers'
     transfer_id = Column(Integer, primary_key=True, autoincrement=True)
