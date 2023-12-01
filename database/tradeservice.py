@@ -8,7 +8,6 @@ from database import get_db
 def add_trade_db(user_id, trade_text, cost, trade_name, category):
     db = next(get_db())
 
-    # Создать обьект для базы данных
     new_trade = UserTrade(user_id=user_id,
                         trade_text=trade_text,
                         trade_name=trade_name,
