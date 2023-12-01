@@ -4,7 +4,7 @@ from datetime import datetime
 from database import get_db
 
 
-# Добавления поста
+
 def add_trade_db(user_id, trade_text, cost, trade_name, category):
     db = next(get_db())
 
@@ -21,7 +21,7 @@ def add_trade_db(user_id, trade_text, cost, trade_name, category):
     return 'Успешно добавлен'
 
 
-# Добавить фото к посту
+
 def add_trade_photo_db(trade_id, trade_photo):
     db = next(get_db())
 
@@ -40,7 +40,7 @@ def get_trade_photo_db():
 
     return new_trade_photo
 
-# Изменить пост
+
 def edit_trade_db(trade_id, user_id, new_text):
     db = next(get_db())
 
@@ -55,7 +55,7 @@ def edit_trade_db(trade_id, user_id, new_text):
         return False
 
 
-# Удалить пост
+
 def delete_trade_db(trade_id):
     db = next(get_db())
 
