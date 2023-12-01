@@ -9,7 +9,6 @@ from perevod import CreateTransferValidator
 perevod_router = APIRouter(prefix='/transaction', tags=['Работа с платежами'])
 
 
-# Запрос на создания транзакций
 @perevod_router.post('/create')
 async def add_new_transaction(data: CreateTransferValidator):
     transaction_data = data.model_dump()
