@@ -27,13 +27,11 @@ async def add_photo(trade_id: int = Body(),
                     ):
     photo_path = f'/media/{photo_file.filename}'
     try:
-        # Сохранения фотографии в папку media
         with open(f'media/{photo_file.filename}', 'wb') as file:
             user_photo = await photo_file.read()
 
             file.write(user_photo)
 
-        # Сохранения ссылки к фотографии в базу
         result = add_trade_photo_db(trade_id=trade_id, trade_photo=photo_path)
 
     except Exception as error:
