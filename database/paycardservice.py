@@ -4,7 +4,7 @@ from database import get_db
 from database.models import UserCard
 
 
-# Добавление карты
+
 def add_card_db(user_id, card_number, balance, card_name, exp_date):
     db = next(get_db())
 
@@ -17,7 +17,7 @@ def add_card_db(user_id, card_number, balance, card_name, exp_date):
     return 'Карта успешно добавлено'
 
 
-# Проверка карты на наличия в ДБ
+
 def check_card_db(card_number):
     db = next(get_db())
 
@@ -26,7 +26,7 @@ def check_card_db(card_number):
     return checker
 
 
-# Удаления карту
+
 def delete_card_db(card_id):
     db = next(get_db())
 
