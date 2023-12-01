@@ -5,7 +5,7 @@ from database import get_db
 from datetime import datetime
 
 
-# Регистрация пользователя
+
 def register_user_db(name, surname, email,
                      phone_number, city, password):
     db = next(get_db())
@@ -24,7 +24,7 @@ def register_user_db(name, surname, email,
     return 'Успешно прошли регистрацию'
 
 
-# Логин пользователя
+
 def login_user_db(email, password):
     db = next(get_db())
 
@@ -39,7 +39,7 @@ def login_user_db(email, password):
         return 'Ошибка в данных'
 
 
-# Добавить фото профиля
+
 def add_profile_photo_db(profile_photo, user_id):
     db = next(get_db())
 
@@ -49,12 +49,12 @@ def add_profile_photo_db(profile_photo, user_id):
         checker.profile_photo = profile_photo
         db.commit()
 
-        return 'Фото профиля добавлен'
+        return 'Фото профиля добавлено'
     else:
         return False
 
 
-# Удаления фото профиля
+
 def delete_profile_photo_db(user_id):
     db = next(get_db())
 
@@ -69,7 +69,6 @@ def delete_profile_photo_db(user_id):
         return False
 
 
-# Получить всех пользователей
 def get_all_users_db():
     db = next(get_db())
 
@@ -78,7 +77,6 @@ def get_all_users_db():
     return all_users
 
 
-# Получить информацию про определенного пользователя
 def get_exact_user_db(user_id):
     db = next(get_db())
 
@@ -87,7 +85,7 @@ def get_exact_user_db(user_id):
     return exact_user
 
 
-# Изменение данных пользователя
+
 def edit_user_db(user_id, name=None, surname=None, email=None,
                  phone_number=None, city=None, password=None):
     db = next(get_db())
@@ -100,7 +98,7 @@ def edit_user_db(user_id, name=None, surname=None, email=None,
         if surname:
             user.surname = surname
         if email:
-            # Проверка на уникальность email
+
             if db.query(User).filter_by(email=email).first():
                 return 'Такой email уже используется'
             user.email = email
@@ -117,7 +115,6 @@ def edit_user_db(user_id, name=None, surname=None, email=None,
         return 'Not Found'
 
 
-# Изменение фотографии профиля
 def edit_profile_photo_db(user_id, profile_photo):
     db = next(get_db())
 
