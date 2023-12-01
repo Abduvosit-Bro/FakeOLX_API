@@ -5,7 +5,7 @@ from datetime import datetime
 from database import get_db
 
 
-# Добавить коментарий
+
 def add_comment_db(user_id, comment_text, trade_id):
     db = next(get_db())
 
@@ -17,7 +17,6 @@ def add_comment_db(user_id, comment_text, trade_id):
     return "Successfully added comment"
 
 
-# Изменения определенный коментарий
 def edit_comment_db(comment_id, new_comment):
     db = next(get_db())
 
@@ -32,7 +31,7 @@ def edit_comment_db(comment_id, new_comment):
         return False
 
 
-# Удаление коментарий
+
 def delete_comment_db(comment_id):
     db = next(get_db())
 
@@ -47,7 +46,7 @@ def delete_comment_db(comment_id):
         return False
 
 
-# Получить все коментарий определенного поста
+
 def get_trade_comments(trade_id):
     db = next(get_db())
 
